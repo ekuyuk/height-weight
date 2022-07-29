@@ -1,0 +1,23 @@
+---
+title: "height-weight"
+output: html_document
+date: "2022-07-29"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(primer.data)
+```
+
+
+```{r}
+library(tidyverse)
+nhanes|>
+select(weight, height)|>
+ggplot(data = nhanes, 
+       mapping = aes(x = weight, y = height))+
+geom_point(alpha = 0.1)+
+facet_wrap(~gender)+
+labs(title = "Relationship between height and weight", subtitle = "A positive correlation can be ovserved between height and weight among both men and women", x = "Weight", y = "Height", caption = "Data collected by NHANES")
+```
+
